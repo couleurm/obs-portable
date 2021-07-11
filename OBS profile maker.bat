@@ -30,7 +30,6 @@ cls
 :chooseres
 echo To set the resolution choose between 720p 1080p or custom
 set /p res=">"
-
 if '%res%' == '1080p' (goto :set1080p)
 if '%res%' == '720p' goto :set720p
 if '%res%' == '1080P' (goto :set1080p)
@@ -49,7 +48,6 @@ goto :write
 :set720p
 set width=1280
 set height=720
-
 goto :write
 :setcustom
 echo Set the width
@@ -57,7 +55,6 @@ set /p width=">"
 echo Set the height
 set /p height=">"
 goto :write
-
 :write
 cd %OBSprofilespath%
 mkdir %profilename%
