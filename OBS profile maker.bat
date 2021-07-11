@@ -123,4 +123,4 @@ echo     "profile": "%profile%",>> recordEncoder.json
 echo     "psycho_aq": false,>> recordEncoder.json
 echo     "rate_control": "CQP">> recordEncoder.json
 echo }>> recordEncoder.json
-%homedrive%%homepath%\Documents\OBS-portable-main\OBS\bin\64bit\obs64.exe -p --startreplaybuffer
+%homedrive%%homepath%\Documents\OBS-portable-main\OBS\bin\64bit\obs64.exe -p --startreplaybuffer --profile "%profilename%"
