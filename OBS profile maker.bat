@@ -1,17 +1,17 @@
-goto :endof
 @echo off
-title OBS profile maker -couleur
-set OBSprofilespath=%homepath%\Documents\OBS\config\obs-studio\basic\profiles
+set OBSprofilespath=%homedrive%%homepath%\Documents\OBS-portable-main\OBS\config\obs-studio\basic\profiles
+title OBS Profile Maker -couleur
 echo What do you want your profile to be named?
 set /p profilename=">"
 cls
-echo How long do you want your replay buffer to go back?
+echo How long do you want your replay buffer to go back (in seconds)?
 set /p RecRBTime=">"
 cls
 echo How much ram do you want replay buffer to allocate (in MBs)
 set /p RecRBSize=">"
 cls
 echo What FPS do you want to record in?
+echo.
 set /p FPSout=">"
 cls
 echo What CQ level?
@@ -43,14 +43,10 @@ echo %res% isn't valid, either choose 1080p or 720p
 pause >nul
 goto :chooseres 
 :set1080p
-echo setting to 1080p
-pause >nul
 set width=1920
 set height=1080
 goto :write
 :set720p
-echo setting to 720p
-pause >nul
 set width=1280
 set height=720
 
@@ -128,13 +124,5 @@ echo     "profile": "%profile%",>> recordEncoder.json
 echo     "psycho_aq": false,>> recordEncoder.json
 echo     "rate_control": "CQP">> recordEncoder.json
 echo }>> recordEncoder.json
-:endof
-@echo off
-echo Set oWS = WScript.CreateObject("WScript.Shell") > CreateShortcut.vbs
-echo sLinkFile = "%HOMEDRIVE%%HOMEPATH%\AppData\Local\Microsoft\WindowsApps\r.lnk" >> CreateShortcut.vbs
-echo Set oLink = oWS.CreateShortcut(sLinkFile) >> CreateShortcut.vbs
-echo oLink.TargetPath = "%HOMEDRIVE%%homepath%\Documents\OBS\bin\64bit\obs64.exe -p --startreplaybuffer" >> CreateShortcut.vbs
-echo oLink.Save >> CreateShortcut.vbs
-cscript CreateShortcut.vbs
-del CreateShortcut.vbs
-%homedrive%%homepath%\Documents\OBS\bin\64bit\obs64.exe -p --startreplaybuffer
+echo %homedrive%%homepath%\Documents\OBS-portable-main\OBS\bin\64bit\obs64.exe -p --startreplaybuffer>%localappdata%\Microsoft\WindowsApps\r.bat
+%localappdata%\Microsoft\WindowsApps\r.bat
