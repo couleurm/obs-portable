@@ -113,7 +113,6 @@ echo OBSBasic.ResetStats={\n    "bindings": [\n        {\n            "key": "OB
 echo.>> basic.ini
 echo [SimpleOutput]>> basic.ini
 echo RecRBPrefix=R>> basic.ini
-
 ::recordEncoder.json
 echo {> recordEncoder.json
 echo     "bf": 0,>> recordEncoder.json
@@ -124,5 +123,4 @@ echo     "profile": "%profile%",>> recordEncoder.json
 echo     "psycho_aq": false,>> recordEncoder.json
 echo     "rate_control": "CQP">> recordEncoder.json
 echo }>> recordEncoder.json
-echo %homedrive%%homepath%\Documents\OBS-portable-main\OBS\bin\64bit\obs64.exe -p --startreplaybuffer>%localappdata%\Microsoft\WindowsApps\r.bat
-%localappdata%\Microsoft\WindowsApps\r.bat
+%homedrive%%homepath%\Documents\OBS-portable-main\OBS\bin\64bit\obs64.exe -p --startreplaybuffer
