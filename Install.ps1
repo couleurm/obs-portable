@@ -2,6 +2,7 @@
 
 if (-not(Test-Path -Path $env:homedrive$env:homepath\AppData\Local\Temp\OBS-portable.zip -PathType Leaf)) {
      try {
+		 Write-Host Downloading OBS
          $null = Invoke-WebRequest -UseBasicParsing "https://github.com/couleurm/obs-portable/archive/refs/heads/main.zip" -OutFile "$env:homedrive$env:homepath\AppData\Local\Temp\OBS-portable.zip"
      }
      catch {
@@ -16,6 +17,7 @@ if (-not(Test-Path -Path $env:homedrive$env:homepath\AppData\Local\Temp\OBS-port
 
  if (-not(Test-Path -Path "$env:homedrive$env:homepath\Documents\obs-portable-main")) {
      try {
+		 Write-Host Extracting OBS
          $null = Expand-Archive -Path "C:$env:homepath\AppData\Local\Temp\OBS-portable.zip" -D "$env:homedrive$env:homepath\Documents"
      }
      catch {

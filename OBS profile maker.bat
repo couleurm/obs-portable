@@ -125,6 +125,11 @@ echo     "psycho_aq": false,>> recordEncoder.json
 echo     "rate_control": "CQP">> recordEncoder.json
 echo }>> recordEncoder.json
 ::W+R shortcut
-echo @echo off>%localappdata%\Microsoft\WindowsApps\PRB.bat"
-echo cd "C:\Users\Dek\Documents\Portable Replay Buffer\bin\64bit">>%localappdata%\Microsoft\WindowsApps\PRB.bat"
-echo start "OBS" OBS64.exe -p --profile --startreplaybuffer&exit>>%localappdata%\Microsoft\WindowsApps\PRB.bat"
+echo @echo off>%localappdata%\Microsoft\WindowsApps\PRB.bat
+echo cd "C:\Users\Dek\Documents\obs-portable-main\bin\64bit">>%localappdata%\Microsoft\WindowsApps\PRB.bat
+echo start "OBS" OBS64.exe -p --startreplaybuffer>>%localappdata%\Microsoft\WindowsApps\PRB.bat
+echo exit>>%localappdata%\Microsoft\WindowsApps\PRB.bat
+::Launching OBS
+cd "C:\Users\Dek\Documents\obs-portable-main\bin\64bit"
+start "OBS" OBS64.exe -p --profile %profilename% --startreplaybuffer
+exit
