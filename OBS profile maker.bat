@@ -1,13 +1,18 @@
 @echo off
 set OBSprofilespath=%homedrive%%homepath%\Documents\OBS-portable-main\OBS\config\obs-studio\basic\profiles
 title OBS Profile Maker -couleur
+echo Welcome to the OBS Profile Maker! Let's get started:
+echo.
 echo What do you want your profile to be named?
+echo.
 set /p profilename=">"
 cls
 echo How long do you want your replay buffer to go back (in seconds)?
+echo.
 set /p RecRBTime=">"
 cls
 echo How much ram do you want replay buffer to allocate (in MBs)
+echo.
 set /p RecRBSize=">"
 cls
 echo What FPS do you want to record in?
@@ -17,6 +22,7 @@ cls
 echo What CQ level?
 echo.
 echo Choose between 1 and 30, a good middleground is around 15
+echo.
 set /p cqlevel=">"
 cls
 echo What profile?
@@ -24,11 +30,13 @@ echo.
 echo Choose between high, main or baseline
 echo High is the most efficient but slower at a high FPS
 echo Baseline will give you the best performance at a high FPS but way larger files
-echo Main is a middleground
+echo Main is a middleground between them
+echo.
 set /p profile=">"
 cls
 :chooseres
 echo To set the resolution choose between 720p 1080p or custom
+echo.
 set /p res=">"
 if '%res%' == '1080p' (goto :set1080p)
 if '%res%' == '720p' goto :set720p
@@ -73,12 +81,8 @@ echo FPSNum=%FPSout%>> basic.ini
 echo ScaleType=bilinear>> basic.ini
 echo ColorSpace=709>> basic.ini
 echo.>> basic.ini
-:: echo [Panels]>> basic.ini
-:: echo CookieId=4DA130AF151FEAE0>> basic.ini
-:: echo.>> basic.ini
 echo [Output]>> basic.ini
 echo Mode=Advanced>> basic.ini
-:: echo FilenameFormatting=\%MM-\%DD \%hh-\%mm>> basic.ini
 echo.>> basic.ini
 echo [AdvOut]>> basic.ini
 echo TrackIndex=1>> basic.ini
@@ -120,4 +124,7 @@ echo     "profile": "%profile%",>> recordEncoder.json
 echo     "psycho_aq": false,>> recordEncoder.json
 echo     "rate_control": "CQP">> recordEncoder.json
 echo }>> recordEncoder.json
-%homedrive%%homepath%\Documents\OBS-portable-main\OBS\bin\64bit\obs64.exe -p --startreplaybuffer --profile "%profilename%"
+::W+R shortcut
+echo @echo off>%localappdata%\Microsoft\WindowsApps\PRB.bat"
+echo cd "C:\Users\Dek\Documents\Portable Replay Buffer\bin\64bit">>%localappdata%\Microsoft\WindowsApps\PRB.bat"
+echo start "OBS" OBS64.exe -p --profile --startreplaybuffer&exit>>%localappdata%\Microsoft\WindowsApps\PRB.bat"
