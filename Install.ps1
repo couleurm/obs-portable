@@ -1,6 +1,6 @@
  # Download
 
-if (-not(Test-Path -Path $env:homedrive$env:homepath\AppData\Local\Temp\OBS-Studio-25.0.8-Full-x64.zip -PathType Leaf)) {
+if (-not(Test-Path -Path $env:homedrive$env:homepath\AppData\Local\Temp\OBS-portable.zip -PathType Leaf)) {
      try {
          $null = Invoke-WebRequest -UseBasicParsing "https://github.com/couleurm/obs-portable/archive/refs/heads/main.zip" -OutFile "$env:homedrive$env:homepath\AppData\Local\Temp\OBS-portable.zip"
      }
