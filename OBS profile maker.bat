@@ -126,10 +126,10 @@ echo     "rate_control": "CQP">> recordEncoder.json
 echo }>> recordEncoder.json
 ::W+R shortcut
 echo @echo off>%localappdata%\Microsoft\WindowsApps\PRB.bat
-echo cd "C:\Users\Dek\Documents\obs-portable-main\bin\64bit">>%localappdata%\Microsoft\WindowsApps\PRB.bat
+echo cd "%homedrive%%homepath%\Documents\obs-portable-main\bin\64bit">>%localappdata%\Microsoft\WindowsApps\PRB.bat
 echo start "OBS" OBS64.exe -p --startreplaybuffer>>%localappdata%\Microsoft\WindowsApps\PRB.bat
 echo exit>>%localappdata%\Microsoft\WindowsApps\PRB.bat
 ::Launching OBS
-cd "C:\Users\Dek\Documents\obs-portable-main\bin\64bit"
+cd "%homedrive%%homepath%\Documents\obs-portable-main\bin\64bit"
 start "OBS" OBS64.exe -p --profile %profilename% --startreplaybuffer
 exit
